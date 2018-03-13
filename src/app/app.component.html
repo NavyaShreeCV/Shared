@@ -1,21 +1,139 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="navbar navbar-light navbar-fixed-top">
 
-<router-outlet></router-outlet>
+  <div class="container">
+
+
+    <div class="navbar-header">
+
+      <button button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+        aria-controls="navbar">
+
+        <span class="sr-only">Toggle navigation</span>
+
+        <span class="icon-bar"></span>
+
+        <span class="icon-bar"></span>
+
+        <span class="icon-bar"></span>
+
+      </button>
+
+      <a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
+
+        <img style="max-width:100px; margin-top: -7px;" src="https://upload.wikimedia.org/wikipedia/commons/6/60/HappiestMinds_Logo_Colour.png">
+
+      </a>
+
+    </div>
+
+
+    <div id="navbar" class="collapse navbar-collapse navbar-responsive-collapse" style="background-color:white;">
+
+      <ul class="nav navbar-nav">
+
+        <li class="active">
+          <a href="http://localhost:4200/">Home</a>
+        </li>
+
+        <li>
+          <a href="https://www.happiestminds.com/about-us/">About</a>
+        </li>
+
+        <li>
+          <a href="https://www.happiestminds.com/location/">Contact</a>
+        </li>
+
+
+      </ul>
+
+      <form class="navbar-form navbar-right" role="search" method="get" id="searchform" action="">
+
+
+      </form>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+<div class="masterimg">
+  <br />
+  <br />
+  <br />
+  <h1>
+    {{title}}
+  </h1>
+
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+</div>
+<br/>
+<div class="master">
+  <a data-target="#popup" data-toggle="modal">Admin</a>
+  <!-- <a routerLink="/training">Create Training</a> -->
+  <br/>
+
+  <br/>
+  <a routerLink="/form">User</a>
+  <br/>
+  <!-- <a routerLink="/feedbackdisplay">Feedback display</a> -->
+  <div *ngIf="abc" style="text-align: center" >
+    <a routerLink="/training">Create Training</a>
+    <br/>
+    <a routerLink="/edit">Edit Training</a>
+    <br/>
+    <a routerLink="/feedbackdisplay">Feedback display</a>
+  </div>
+  <div *ngIf="fail"  class="fail">
+    <h3>User does not exist</h3>
+  </div>
+  <router-outlet></router-outlet>
+
+</div>
+<!-- <app-edit></app-edit> -->
+<!-- Login -->
+
+
+
+<div class="modal" data-keyboard="false" id="popup">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h3>Login</h3>
+
+          <button type="button" class="close float_r" ng-click="" data-dismiss="modal">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="login">
+
+          <h4>
+            User Name
+          </h4>
+          <input type="text" #userid>
+          <h4>Password</h4>
+          <input type="password" #password>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="confirm(userid.value,password.value)">OK</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Login End -->
+<!-- <div *ngFor= "let ab of admin">
+  {{ab.UserName}}
+</div> -->
